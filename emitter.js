@@ -1,21 +1,21 @@
 
+class Particle 
+{
+    constructor() 
+    {
+        var top_position = Math.random() * 200;
+        top_position = (screen.height / 2) + Math.floor(top_position);
+        var left_position = Math.random() * 200;
+        left_position = (screen.width / 2) + Math.floor(left_position);
+
+        this.top = top_position + "px";
+        this.left = left_position + "px";
+        this.color = "green";
+    }
+}
+
 window.onload = function()
 {
-    class Particle 
-    {
-        constructor()
-        {
-            var top_position = Math.random() * 200;
-            top_position = (screen.height / 2)+ Math.floor(top_position);
-            var left_position = Math.random() * 200;
-            left_position = (screen.width / 2) + Math.floor(left_position);
-
-            this.top = top_position + "px";
-            this.left = left_position + "px";
-            this.color = "green";
-        }
-    }
-
     var pos = 0;
     var con = document.getElementById('container')
 
