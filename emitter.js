@@ -4,13 +4,15 @@ window.onload = function()
     var pos = 0;
     var con = document.getElementById('container')
 
-    con.onclick = function ()
+    var timer = setInterval(createParticle, 50)
+
+    function createParticle()
     {
         var cr_box = document.createElement('div');
             
-        var top_position = Math.random() * 40;
+        var top_position = Math.random() * 200;
         top_position = (screen.height / 2)+ Math.floor(top_position);
-        var left_position = Math.random() * 40;
+        var left_position = Math.random() * 200;
         left_position = (screen.width / 2) + Math.floor(left_position);
 
         cr_box.style.height = "5px";
