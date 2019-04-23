@@ -8,10 +8,10 @@ window.onload = function()
     {
         var cr_box = document.createElement('div');
             
-        var top_position = Math.random() * 500;
-        top_position = Math.floor(top_position);
-        var left_position = Math.random() * 500;
-        left_position = Math.floor(left_position);
+        var top_position = Math.random() * 40;
+        top_position = (screen.height / 2)+ Math.floor(top_position);
+        var left_position = Math.random() * 40;
+        left_position = (screen.width / 2) + Math.floor(left_position);
 
         cr_box.style.height = "5px";
         cr_box.style.width = "5px";
