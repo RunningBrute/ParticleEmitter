@@ -1,7 +1,7 @@
 const canvasElem = document.getElementById('can'); 
 const ctx = canvasElem.getContext('2d'); 
 
-var timer = setInterval(singleCreate, 100)
+var timer = setInterval(singleCreate, 10)
 
 var particles = new Array();
 
@@ -12,21 +12,22 @@ function createParticle()
 	this.width = 5;
 	this.height = 5;
 	
-	ctx.fillRect(this.x, this.y,
-				  this.width, this.height);
+	ctx.fillRect(
+		this.x, 
+		this.y,
+		this.width, 
+		this.height);
 }
 
 function singleCreate()
 {
-	if (particles.length < 10)
+	if (particles.length < 1000)
 	{
 		let p = new createParticle();
 		particles.push(p)
 	}
-	else
-	{
-		updatePosition()
-	}
+	
+	updatePosition()
 }
 	
 function updatePosition()
@@ -36,10 +37,10 @@ function updatePosition()
 		ctx.clearRect(
 			particles[i].x, 
 			particles[i].y,
-			particles[i].width,
-			particles[i].height);
+			particles[i].width+1,
+			particles[i].height+1);
 		
-		particles[i].x += 1;
+		//particles[i].x += 1;
 		particles[i].y += 1;
 		
 		ctx.fillRect(
@@ -49,4 +50,3 @@ function updatePosition()
 			particles[i].height);
 	}
 }
-    
