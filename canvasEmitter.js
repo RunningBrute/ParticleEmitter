@@ -1,5 +1,18 @@
+// pass in the canvas' context to this function 
+function disableAntiAliasing(context) 
+{ 
+	// note: you must factor this into any other
+	// context.translate calls in the future
+	context.translate(0.5, 0.5); 
+	context.webkitImageSmoothingEnabled = false; 
+	context.mozImageSmoothingEnabled = false; 
+	context.imageSmoothingEnabled = false; 
+}
+
 const canvasElem = document.getElementById('can'); 
-const ctx = canvasElem.getContext('2d'); 
+var ctx = canvasElem.getContext('2d'); 
+
+//disableAntiAliasing(ctx);
 
 var timer = setInterval(singleCreate, 10)
 
@@ -7,8 +20,8 @@ var particles = new Array();
 
 function createParticle()
 {
-	this.x = Math.random() * 200;
-	this.y = Math.random() * 150;
+	this.x = Math.floor(Math.random() * 200);
+	this.y = Math.floor(Math.random() * 150);
 	this.width = 5;
 	this.height = 5;
 	
@@ -21,7 +34,7 @@ function createParticle()
 
 function singleCreate()
 {
-	if (particles.length < 1000)
+	if (particles.length < 100)
 	{
 		let p = new createParticle();
 		particles.push(p)
@@ -37,8 +50,8 @@ function updatePosition()
 		ctx.clearRect(
 			particles[i].x, 
 			particles[i].y,
-			particles[i].width+1,
-			particles[i].height+1);
+			particles[i].width,
+			particles[i].height);
 		
 		//particles[i].x += 1;
 		particles[i].y += 1;
