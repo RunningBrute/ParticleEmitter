@@ -11,7 +11,7 @@ function disableAntiAliasing(context)
 
 const canvasElem = document.getElementById('can'); 
 var ctx = canvasElem.getContext('2d'); 
-
+ctx.fillStyle = "#FFFFFF";
 //disableAntiAliasing(ctx);
 
 var timer = setInterval(singleCreate, 10)
@@ -21,9 +21,9 @@ var particles = new Array();
 function createParticle()
 {
 	this.x = Math.floor(Math.random() * 200);
-	this.y = Math.floor(Math.random() * 150);
-	this.width = 5;
-	this.height = 5;
+	this.y = Math.floor(Math.random() * 200);
+	this.width = 1;
+	this.height = 1;
 	
 	ctx.fillRect(
 		this.x, 
@@ -34,7 +34,7 @@ function createParticle()
 
 function singleCreate()
 {
-	if (particles.length < 100)
+	if (particles.length < 10000)
 	{
 		let p = new createParticle();
 		particles.push(p)
