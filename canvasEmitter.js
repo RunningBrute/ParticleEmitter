@@ -9,14 +9,17 @@ function disableAntiAliasing(context)
 	context.imageSmoothingEnabled = false; 
 }
 
-const canvasElem = document.getElementById('can'); 
-var ctx = canvasElem.getContext('2d'); 
-ctx.fillStyle = "#FFFFFF";
-//disableAntiAliasing(ctx);
+window.onload = function()
+{
+    const canvasElem = document.getElementById('can'); 
+    var ctx = canvasElem.getContext('2d'); 
+    ctx.fillStyle = "#FFFFFF";
+    //disableAntiAliasing(ctx);
 
-var timer = setInterval(singleCreate, 10)
+    var timer = setInterval(singleCreate, 10)
 
-var particles = new Array();
+    var particles = new Array();
+}
 
 function createParticle()
 {
