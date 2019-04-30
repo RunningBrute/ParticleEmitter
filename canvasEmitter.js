@@ -1,8 +1,8 @@
 window.onload = function()
 {
 	const MAX_PARTICLE_SIZE = 3;
-	const START_X = 200;
-	const START_Y = 200;
+	const START_X = 1000 / 2; 
+	const START_Y = 600 / 2;
 	const DELTA_X = 5;
 	const DELTA_Y = 5;
 
