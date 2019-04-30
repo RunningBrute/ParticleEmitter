@@ -31,10 +31,10 @@ window.onload = function()
 	{
 		this.x = Math.floor(Math.random() * 200);
 		this.y = Math.floor(Math.random() * 200);
-		this.width = 1;
-		this.height = 1;
-		this.deltaX = Math.ceil(Math.random() * 3);
-		this.deltaY = Math.ceil(Math.random() * 3);
+		this.width = Math.ceil(Math.random() * 3);
+		this.height = this.width;
+		this.deltaX = Math.ceil(Math.random() * 5);
+		this.deltaY = Math.ceil(Math.random() * 5);
 	
 		ctx.fillRect(this.x, this.y, this.width, this.height, this.deltaX, this.deltaY);
 	}
