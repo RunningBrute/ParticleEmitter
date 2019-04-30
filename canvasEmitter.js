@@ -1,6 +1,10 @@
 window.onload = function()
 {
 	const MAX_PARTICLE_SIZE = 3;
+	const START_X = 200;
+	const START_Y = 200;
+	const DELTA_X = 5;
+	const DELTA_Y = 5;
 
     const canvasElem = document.getElementById('can'); 
     var ctx = canvasElem.getContext('2d'); 
@@ -31,12 +35,12 @@ window.onload = function()
 
 	function createParticle()
 	{
-		this.x = Math.floor(Math.random() * 200);
-		this.y = Math.floor(Math.random() * 200);
+		this.x = Math.floor(Math.random() * START_X);
+		this.y = Math.floor(Math.random() * START_Y);
 		this.width = Math.ceil(Math.random() * MAX_PARTICLE_SIZE);
 		this.height = this.width;
-		this.deltaX = Math.ceil(Math.random() * 5);
-		this.deltaY = Math.ceil(Math.random() * 5);
+		this.deltaX = Math.ceil(Math.random() * DELTA_X);
+		this.deltaY = Math.ceil(Math.random() * DELTA_Y);
 	
 		ctx.fillRect(this.x, this.y, this.width, this.height, this.deltaX, this.deltaY);
 	}
