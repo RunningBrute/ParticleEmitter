@@ -5,9 +5,16 @@ window.onload = function()
     ctx.fillStyle = "#FFFFFF";
     //disableAntiAliasing(ctx);
 
-    var timer = setInterval(singleCreate, 10)
+	var emittTimer = setInterval(emmitt, 10);
 
 	var particles = new Array();
+
+	function emmitt()
+	{
+		singleCreate();
+		updatePosition();
+		drawParticles();
+	}
 	
 	// pass in the canvas' context to this function 
 	function disableAntiAliasing(context) 
@@ -26,8 +33,10 @@ window.onload = function()
 		this.y = Math.floor(Math.random() * 200);
 		this.width = 1;
 		this.height = 1;
+		this.deltaX = Math.ceil(Math.random() * 3);
+		this.deltaY = Math.ceil(Math.random() * 3);
 	
-		ctx.fillRect(this.x, this.y, this.width, this.height);
+		ctx.fillRect(this.x, this.y, this.width, this.height, this.deltaX, this.deltaY);
 	}
 
 	function singleCreate()
@@ -37,22 +46,27 @@ window.onload = function()
 			let p = new createParticle();
 			particles.push(p)
 		}
-	
-		updatePosition()
 	}
 	
 	function updatePosition()
 	{
 		for (let i = 0; i < particles.length; i++)
 		{
-			ctx.clearRect(particles[i].x, particles[i].y,
-			              particles[i].width, particles[i].height);
-		
-		    //particles[i].x += 1;
-			particles[i].y += 1;
-		
-			ctx.fillRect(particles[i].x, particles[i].y,
-			             particles[i].width, particles[i].height);
+		    particles[i].x += particles[i].deltaX;
+			particles[i].y += particles[i].deltaY;
 	    }
+	}
+
+	function drawParticles()
+	{
+		for (let i = 0; i < particles.length; i++)
+		{
+			ctx.clearRect(particles[i].x - particles[i].deltaX,
+				          particles[i].y - particles[i].deltaY,
+						  particles[i].width, particles[i].height);
+						  
+			ctx.fillRect(particles[i].x, particles[i].y,
+						 particles[i].width, particles[i].height);
+		}
 	}
 }
