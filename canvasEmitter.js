@@ -1,5 +1,7 @@
 window.onload = function()
 {
+	const MAX_PARTICLE_SIZE = 3;
+
     const canvasElem = document.getElementById('can'); 
     var ctx = canvasElem.getContext('2d'); 
     ctx.fillStyle = "#FFFFFF";
@@ -31,7 +33,7 @@ window.onload = function()
 	{
 		this.x = Math.floor(Math.random() * 200);
 		this.y = Math.floor(Math.random() * 200);
-		this.width = Math.ceil(Math.random() * 3);
+		this.width = Math.ceil(Math.random() * MAX_PARTICLE_SIZE);
 		this.height = this.width;
 		this.deltaX = Math.ceil(Math.random() * 5);
 		this.deltaY = Math.ceil(Math.random() * 5);
@@ -61,8 +63,10 @@ window.onload = function()
 	{
 		for (let i = 0; i < particles.length; i++)
 		{
-			ctx.clearRect(particles[i].x - particles[i].deltaX,
-				          particles[i].y - particles[i].deltaY,
+			let xBeforeUpdate = particles[i].x - particles[i].deltaX;
+			let yBeforeUpdate = particles[i].y - particles[i].deltaY;
+
+			ctx.clearRect(xBeforeUpdate, yBeforeUpdate,
 						  particles[i].width, particles[i].height);
 						  
 			ctx.fillRect(particles[i].x, particles[i].y,
