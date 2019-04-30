@@ -11,13 +11,13 @@ window.onload = function()
     ctx.fillStyle = "#FFFFFF";
     //disableAntiAliasing(ctx);
 
-	var emittTimer = setInterval(emmitt, 10);
+	var emitterTimer = setInterval(emmitt, 10);
 
 	var particles = new Array();
 
 	function emmitt()
 	{
-		singleCreate();
+		singleParticleCreate();
 		updatePosition();
 		drawParticles();
 	}
@@ -45,7 +45,7 @@ window.onload = function()
 		ctx.fillRect(this.x, this.y, this.width, this.height, this.deltaX, this.deltaY);
 	}
 
-	function singleCreate()
+	function singleParticleCreate()
 	{
 		if (particles.length < 10000)
 		{
