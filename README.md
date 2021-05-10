@@ -1,2 +1,2 @@
 # ParticleEmitter
-Simple particle emitter engine, just for learning java script.
+Simple particle emitter engine. Just for learning java script.
